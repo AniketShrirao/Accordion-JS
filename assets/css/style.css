@@ -125,12 +125,66 @@ header {
   main styling starts here
 =================================*/
 
+.accordion {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px;
+  justify-content: center;
+}
 
+.panel {
+  width: 50%;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+}
 
+.panelHead {
+  width: 100%;
+  background-color: #fff;
+  color: #2b2e37;
+  cursor: pointer;
+  padding: 25px;
+  border: none;
+  outline: none;
+  font-size: 20px;
+  text-align: left;
+  transition: 0.4s;
+}
 
+.panelHead:after {
+  content: '\002B';
+  color: #777;
+  transform: scale(1.5);
+  float: right;
+}
 
+.panelContent {
+  border-top: 1px solid #efefef;
+  background: darksalmon;
+  color: #fff;
+  max-height: 0;
+  overflow: hidden;
+}
 
+.open:after {
+  content: "\002B";
+  transform: rotate(45deg);
+}
 
+.open { 
+  background: beige;
+  color:indianred;
+ }
+
+.open .panelContent { max-height: 320px; }
+.close .panelContent { max-height: 0; }
+
+ .panelContent p {
+  padding:25px;
+  line-height: 1.5;
+  text-align: left;
+}
 
 /*=================================
   main styling ends here

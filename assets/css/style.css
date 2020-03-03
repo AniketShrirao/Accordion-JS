@@ -167,18 +167,18 @@ header {
   overflow: hidden;
 }
 
-.open:after {
+.active:after {
   content: "\002B";
   transform: rotate(45deg);
 }
 
-.open { 
+.active { 
   background: beige;
   color:indianred;
  }
 
-.open .panelContent { max-height: 320px; }
-.close .panelContent { max-height: 0; }
+ .open { max-height: 320px; }
+.close { max-height: 0; }
 
  .panelContent p {
   padding:25px;

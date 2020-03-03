@@ -169,7 +169,8 @@ header {
 
 .active:after {
   content: "\002B";
-  transform: rotate(45deg);
+  transform: rotate(45deg) scale(1.5);
+  transition: all 2s ease;
 }
 
 .active { 
@@ -177,8 +178,15 @@ header {
   color:indianred;
  }
 
- .open { max-height: 320px; }
-.close { max-height: 0; }
+ .open { 
+   max-height: 320px;
+   transition: all 2s ease;
+  }
+
+   .close { 
+    max-height: 0;
+    transition: all 2s ease;
+  }
 
  .panelContent p {
   padding:25px;

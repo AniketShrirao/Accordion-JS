@@ -1,41 +1,50 @@
 /* Author:Aniket */
 
-function Accordion() {
+// Get accordion Heading & accordion Content
   var accHead = document.getElementsByClassName('panelHead');
   var accContent = document.getElementsByClassName('panelContent');
-  var j = 0;
+  
+// Accordion Function Started
+  function Accordion(accHead,accContent) {
   var previousActive;
-
-  function firstActive() {
-    accHead[0].classList.add('active');
-    accContent[0].classList.add('open');
-  }
-  firstActive();
-
+// assign click function to every accordion head
   for (i = 0; i < accHead.length; i++) {
-      accHead[i].addEventListener('click', toggleItem, false);
+      accHead[i].addEventListener('click', openItem);
   }
-    function toggleItem() {
+// open accordion function
+    function openItem() {
     for(var head in accHead) {
       if(head == 'length') {
         break;
       }
-      accHead[head].classList.remove('active');
+      // if accordion already opened close it on self click
+      var accordionActive = this.classList.contains('active');
+      var accordionOpen = this.nextElementSibling.classList.contains('open');
+      if(accordionActive === true && accordionOpen === true) {
+      this.classList.remove('active');
+      this.nextElementSibling.classList.remove('open');
+      return false;
+      }
     }
+    // if accordion already opened close it on click
     var panelIsOpen = this.parentNode.classList.contains('close');
     var panelIsClosed = this.parentNode.classList.contains('panel');
     for (i = 0; i < accContent.length; i++) {
-      if(previousActive) {
-        accHead[i].classList.remove('active');        
-      }
+      // make every accordion heading to be inactive
+      accHead[i].classList.remove('active');
+      // make clicked accordion heading only active
       this.classList.add('active');
+      // make every accordion content to be close
       accContent[i].classList.remove('open');
+      // make clicked accordion heading to be opened
       accContent[i].classList.add('close');
     }
+    // if accordion already closed open it on click
     if (panelIsClosed || panelIsOpen) {
       this.nextElementSibling.classList.remove('close');
       this.nextElementSibling.classList.add('open');
     }
   }
 }
-Accordion();
+// call Accordion Function
+Accordion(accHead,accContent);

@@ -6,7 +6,6 @@
   
 // Accordion Function Started
   function Accordion(accHead,accContent) {
-  var previousActive;
 // assign click function to every accordion head
   for (i = 0; i < accHead.length; i++) {
       accHead[i].addEventListener('click', openItem);
@@ -21,8 +20,9 @@
       var accordionActive = this.classList.contains('active');
       var accordionOpen = this.nextElementSibling.classList.contains('open');
       if(accordionActive === true && accordionOpen === true) {
-      this.classList.remove('active');
       this.nextElementSibling.classList.remove('open');
+      this.nextElementSibling.classList.add('close');
+      this.classList.remove('active');
       return false;
       }
     }

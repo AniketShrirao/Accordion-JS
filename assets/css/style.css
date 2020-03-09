@@ -176,19 +176,19 @@ header {
 .active { 
   background: beige;
   color:indianred;
- }
+}
 
- .open { 
-   max-height: 320px;
-   transition: all 2s ease;
-  }
+.open { 
+  max-height: 320px;
+  transition: all 2s ease;
+}
 
-   .close { 
-    max-height: 0;
-    transition: all 1s ease;
-  }
+.close { 
+  max-height: 0;
+  transition: all 1s ease;
+}
 
- .panelContent p {
+.panelContent p {
   padding:25px;
   line-height: 1.5;
   text-align: left;
@@ -197,11 +197,3 @@ header {
 /*=================================
   main styling ends here
 =================================*/
-
-/*media query starts*/
-/*media query for 995px starts here*/
-@media only screen and (max-width: 995px) {
-
-
-
-}  

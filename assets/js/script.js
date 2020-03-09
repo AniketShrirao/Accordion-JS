@@ -8,10 +8,10 @@
   function Accordion(accHead,accContent) {
 // assign click function to every accordion head
   for (i = 0; i < accHead.length; i++) {
-      accHead[i].addEventListener('click', openItem);
+    accHead[i].addEventListener('click', dropAccordionContent);
   }
-// open accordion function
-    function openItem() {
+  // open accordion function
+  function dropAccordionContent() {
     for(var head in accHead) {
       if(head == 'length') {
         break;
@@ -26,7 +26,7 @@
       return false;
       }
     }
-    // if accordion already opened close it on click
+    // if accordion already opened close it on any accordion head click
     var panelIsOpen = this.parentNode.classList.contains('close');
     var panelIsClosed = this.parentNode.classList.contains('panel');
     for (i = 0; i < accContent.length; i++) {
@@ -36,15 +36,15 @@
       this.classList.add('active');
       // make every accordion content to be close
       accContent[i].classList.remove('open');
-      // make clicked accordion heading to be opened
+      // make clicked accordion content to be dropped
       accContent[i].classList.add('close');
     }
-    // if accordion already closed open it on click
+    // if accordion already closed drop it on click
     if (panelIsClosed || panelIsOpen) {
       this.nextElementSibling.classList.remove('close');
       this.nextElementSibling.classList.add('open');
     }
   }
 }
-// call Accordion Function
+//Accordion function call
 Accordion(accHead,accContent);
